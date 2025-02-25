@@ -1,0 +1,27 @@
+# permissions for end users to edit networkobservers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: skupper-network-observer-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: networkobserver-editor-role
+rules:
+- apiGroups:
+  - observability.skupper.io
+  resources:
+  - networkobservers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - observability.skupper.io
+  resources:
+  - networkobservers/status
+  verbs:
+  - get

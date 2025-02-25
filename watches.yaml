@@ -1,0 +1,6 @@
+# Use the 'create api' subcommand to add watches to this file.
+- group: observability.skupper.io
+  version: v2alpha1
+  kind: NetworkObserver
+  chart: helm-charts/network-observer
+# +kubebuilder:scaffold:watch

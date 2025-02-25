@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- observability_v2alpha1_networkobserver.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

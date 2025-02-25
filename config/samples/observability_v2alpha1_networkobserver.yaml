@@ -1,0 +1,90 @@
+apiVersion: observability.skupper.io/v2alpha1
+kind: NetworkObserver
+metadata:
+  name: networkobserver-sample
+spec:
+  # Default values copied from <project_dir>/helm-charts/network-observer/values.yaml
+  auth:
+    basic:
+      create: true
+      htpasswd: |
+        # skupper: skupper
+        skupper:$2y$05$Fz95zqZnAapAe5BqmRjx3.vCOzepI6h/UCdDQfP5cdsLoaef2HMaq
+      secretName: ""
+    openshift:
+      serviceAccount:
+        create: true
+        nameOverride: ""
+    strategy: basic
+  extraArgs: null
+  fullnameOverride: ""
+  image:
+    pullPolicy: Always
+    repository: quay.io/skupper/network-observer
+    tag: ""
+  ingress:
+    annotations: {}
+    className: ""
+    enabled: false
+    hosts:
+    - host: chart-example.local
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+    tls: []
+  nameOverride: ""
+  nginx:
+    pullPolicy: IfNotPresent
+    repository: mirror.gcr.io/nginxinc/nginx-unprivileged
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+    tag: 1.27.3-alpine
+  openshiftOauthProxy:
+    pullPolicy: IfNotPresent
+    repository: quay.io/openshift/origin-oauth-proxy
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+    tag: 4.14.0
+  podAnnotations: {}
+  podLabels: {}
+  podSecurityContext:
+    seccompProfile:
+      type: RuntimeDefault
+  prometheus:
+    pullPolicy: IfNotPresent
+    repository: quay.io/prometheus/prometheus
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+    tag: v3.0.1
+  resources: {}
+  route:
+    enabled: false
+  router:
+    certificate:
+      create: true
+      nameOverride: ""
+    endpoint: amqps://skupper-router-local
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+  service:
+    port: 443
+    type: ClusterIP
+  skipManagementLabels: false
+  tls:
+    openshiftIssued: false
+    secretName: ""
+    skupperIssued: true
+  
+  

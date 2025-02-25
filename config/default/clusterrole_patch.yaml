@@ -1,0 +1,27 @@
+- op: add
+  path: /rules/-
+  value:
+    apiGroups:
+      - ""
+    resources:
+      - serviceaccounts
+    verbs:
+      - "*"
+- op: add
+  path: /rules/-
+  value:
+    apiGroups:
+      - "route.openshift.io"
+    resources:
+      - routes
+    verbs:
+      - "*"
+- op: add
+  path: /rules/-
+  value:
+    apiGroups:
+      - "networking.k8s.io"
+    resources:
+      - ingress
+    verbs:
+      - "*"
