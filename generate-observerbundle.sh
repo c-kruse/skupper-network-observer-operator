@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 HELM=${HELM:-helm}
-VERSION=${VERSION:-2.0.0-rc1}
+VERSION=${VERSION:-2.0.0}
 "$HELM" pull oci://quay.io/skupper/helm/network-observer --version "$VERSION"
 
 operator-sdk init \

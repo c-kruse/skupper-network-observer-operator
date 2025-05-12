@@ -25,3 +25,22 @@
       - ingress
     verbs:
       - "*"
+- op: add
+  path: /rules/-
+  value:
+    apiGroups:
+      - "rbac.authorization.k8s.io"
+    resources:
+      - rolebindings
+      - roles
+    verbs:
+      - "*"
+- op: add
+  path: /rules/-
+  value:
+    apiGroups:
+      - batch
+    resources:
+      - jobs
+    verbs:
+      - "*"

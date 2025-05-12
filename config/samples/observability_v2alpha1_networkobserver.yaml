@@ -7,11 +7,10 @@ spec:
   auth:
     basic:
       create: true
-      htpasswd: |
-        # skupper: skupper
-        skupper:$2y$05$Fz95zqZnAapAe5BqmRjx3.vCOzepI6h/UCdDQfP5cdsLoaef2HMaq
       secretName: ""
     openshift:
+      cookieSecretName: ""
+      createCookieSecret: true
       serviceAccount:
         create: true
         nameOverride: ""
@@ -64,7 +63,7 @@ spec:
       capabilities:
         drop:
         - ALL
-    tag: v3.0.1
+    tag: v3.1.0
   resources: {}
   route:
     enabled: false

@@ -48,14 +48,6 @@ rules:
 - verbs:
   - "*"
   apiGroups:
-  - ""
-  resources:
-  - "configmaps"
-  - "secrets"
-  - "services"
-- verbs:
-  - "*"
-  apiGroups:
   - "apps"
   resources:
   - "deployments"
@@ -65,5 +57,12 @@ rules:
   - "skupper.io"
   resources:
   - "certificates"
+- verbs:
+  - "*"
+  apiGroups:
+  - ""
+  resources:
+  - "configmaps"
+  - "services"
 
 # +kubebuilder:scaffold:rules

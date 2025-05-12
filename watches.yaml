@@ -3,4 +3,9 @@
   version: v2alpha1
   kind: NetworkObserver
   chart: helm-charts/network-observer
+  overrideValues:
+    auth.strategy: openshift
+    tls.skupperIssued: false
+    tls.openshiftIssued: true
+    route.enabled: true
 # +kubebuilder:scaffold:watch
